@@ -4,7 +4,7 @@
 # GitHub
 #    https://github.com/Korchy/1d_rotten_rotation
 
-from math import isclose
+from math import isclose, pi
 from bpy.types import Operator, Panel
 from bpy.utils import register_class, unregister_class
 
@@ -12,7 +12,7 @@ bl_info = {
     "name": "Rotten Rotation",
     "description": "Detects objects which have rotation equal to -180 about X, Y or Z axis",
     "author": "Nikita Akimov, Paul Kotelevets",
-    "version": (1, 0, 0),
+    "version": (1, 1, 0),
     "blender": (2, 79, 0),
     "location": "View3D > Tool panel > 1D > Rotten Rotation",
     "doc_url": "https://github.com/Korchy/1d_rotten_rotation",
@@ -24,6 +24,14 @@ bl_info = {
 # MAIN CLASS
 
 class RottenRotation:
+
+    @classmethod
+    def unrotte(cls, objs):
+        # unrotate selected objects
+        for obj in objs:
+            obj.rotation_euler.x = 0.0
+            obj.rotation_euler.y = 0.0
+            obj.rotation_euler.z += pi
 
     @classmethod
     def detect_rotten(cls, context):
@@ -39,8 +47,24 @@ class RottenRotation:
             operator='rotten_rotation.rotten_rotation',
             icon='MOD_MIRROR'
         )
+        layout.operator(
+            operator='rotten_rotation.unrotten_selection',
+            icon='IMPORT'
+        )
 
 # OPERATORS
+
+class RottenRotation_OT_unrotte(Operator):
+    bl_idname = 'rotten_rotation.unrotten_selection'
+    bl_label = 'Unrotten Selection'
+    bl_options = {'REGISTER', 'UNDO'}
+
+    def execute(self, context):
+        RottenRotation.unrotte(
+            objs=context.selected_objects
+        )
+        return {'FINISHED'}
+
 
 class RottenRotation_OT_detect_rotten(Operator):
     bl_idname = 'rotten_rotation.rotten_rotation'
@@ -73,6 +97,7 @@ class RottenRotation_PT_panel(Panel):
 
 def register(ui=True):
     register_class(RottenRotation_OT_detect_rotten)
+    register_class(RottenRotation_OT_unrotte)
     if ui:
         register_class(RottenRotation_PT_panel)
 
@@ -80,6 +105,7 @@ def register(ui=True):
 def unregister(ui=True):
     if ui:
         unregister_class(RottenRotation_PT_panel)
+    unregister_class(RottenRotation_OT_unrotte)
     unregister_class(RottenRotation_OT_detect_rotten)
 
 
