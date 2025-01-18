@@ -36,15 +36,15 @@ class RottenRotation:
     def ui(layout, context):
         # ui panel
         layout.operator(
-            operator='rotten_rotation.detect_rotten',
+            operator='rotten_rotation.rotten_rotation',
             icon='MOD_MIRROR'
         )
 
 # OPERATORS
 
 class RottenRotation_OT_detect_rotten(Operator):
-    bl_idname = 'rotten_rotation.detect_rotten'
-    bl_label = 'Detect Rotation'
+    bl_idname = 'rotten_rotation.rotten_rotation'
+    bl_label = 'Rotten Rotation'
     bl_options = {'REGISTER', 'UNDO'}
 
     def execute(self, context):
