@@ -70,7 +70,7 @@ class UnnegativeScale_OT_unnegative_scale(Operator):
 
 class UnnegativeScale_OT_detect_negative_scale(Operator):
     bl_idname = 'unnegative_scale.detect_negative_scale'
-    bl_label = 'Unnegative Scale Selection'
+    bl_label = 'Negative Scale Selection'
     bl_options = {'REGISTER', 'UNDO'}
 
     def execute(self, context):
