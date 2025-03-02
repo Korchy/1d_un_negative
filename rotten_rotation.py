@@ -2,7 +2,7 @@
 # interplanety@interplanety.org
 #
 # GitHub
-#    https://github.com/Korchy/1d_rotten_rotation
+#    https://github.com/Korchy/1d_un_negative
 
 from math import isclose, pi
 from bpy.types import Operator, Panel
@@ -12,11 +12,11 @@ bl_info = {
     "name": "Rotten Rotation",
     "description": "Detects objects which have rotation equal to -180 about X, Y or Z axis",
     "author": "Nikita Akimov, Paul Kotelevets",
-    "version": (1, 1, 0),
+    "version": (1, 2, 0),
     "blender": (2, 79, 0),
     "location": "View3D > Tool panel > 1D > Rotten Rotation",
-    "doc_url": "https://github.com/Korchy/1d_rotten_rotation",
-    "tracker_url": "https://github.com/Korchy/1d_rotten_rotation",
+    "doc_url": "https://github.com/Korchy/1d_un_negative",
+    "tracker_url": "https://github.com/Korchy/1d_un_negative",
     "category": "All"
 }
 
