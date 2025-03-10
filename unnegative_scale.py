@@ -11,7 +11,7 @@ bl_info = {
     "name": "Unnegative scale",
     "description": "Detects objects which have scale < 0.0 about X, Y or Z axis and restore it",
     "author": "Nikita Akimov, Paul Kotelevets",
-    "version": (1, 2, 0),
+    "version": (1, 3, 0),
     "blender": (2, 79, 0),
     "location": "View3D > Tool panel > 1D > Unnegative scale",
     "doc_url": "https://github.com/Korchy/1d_un_negative",
