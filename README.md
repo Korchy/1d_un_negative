@@ -30,10 +30,13 @@ Blender version
 
 Current version
 -
-1.3.0
+1.3.1
 
 Version history
 -
+1.3.1
+- Reduce rotation along Z-axis to < 2*PI in Rotten Rotation
+
 1.3.0
 - Added "Filter Uniformly Scaled"
 
